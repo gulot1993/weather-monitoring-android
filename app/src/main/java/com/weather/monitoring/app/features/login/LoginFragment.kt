@@ -54,9 +54,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun observeState(state: LoginUIState) {
         binding!!.loadingIndicator.isVisible = state.isLoading
         if (state.isSuccess) {
-            Toast.makeText(requireContext(), "Login success", Toast.LENGTH_LONG).show()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
-            return
         }
 
         if (state.error.isNotEmpty()) {

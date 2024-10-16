@@ -6,10 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.weather.monitoring.app.data.entity.UserEntity
 import com.weather.monitoring.app.db.dao.UserDao
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Database(
-    version = 1,
+    version = 2,
     entities = [UserEntity::class]
 )
 abstract class AppDatabase : RoomDatabase() {

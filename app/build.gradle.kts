@@ -35,7 +35,7 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "API_KEY", "\"$weatherAPIKey\"")
-            buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/3.0/onecall/\"")
+            buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/2.5/\"")
         }
         debug {
             isMinifyEnabled = false
@@ -45,7 +45,7 @@ android {
             )
 
             buildConfigField("String", "API_KEY", "\"$weatherAPIKey\"")
-            buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/3.0/onecall/\"")
+            buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/2.5/\"")
         }
     }
     compileOptions {
@@ -100,4 +100,7 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.room.runtime)
     kapt(libs.room.compiler)
+
+    // location provider
+    implementation(libs.location.provider)
 }

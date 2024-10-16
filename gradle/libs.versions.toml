@@ -18,6 +18,7 @@ timber = "5.0.1"
 joda = "2.9.4"
 navigation-component = "2.8.2"
 room-db = "2.6.1"
+location-provider = "21.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -54,6 +55,9 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-db" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-db" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-db" }
+
+#location provider
+location-provider = { group = "com.google.android.gms", name = "play-services-location", version.ref = "location-provider"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
