@@ -103,4 +103,7 @@ dependencies {
 
     // location provider
     implementation(libs.location.provider)
+
+    // splash screen
+    implementation(libs.splash.screen)
 }

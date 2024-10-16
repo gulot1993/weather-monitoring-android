@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -19,12 +20,16 @@ import com.weather.monitoring.app.R
 import com.weather.monitoring.app.base.BaseActivity
 import com.weather.monitoring.app.databinding.ActivityMainBinding
 import com.weather.monitoring.app.features.home.HomeViewModel
+import com.weather.monitoring.app.features.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private val homeViewModel: HomeViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
+
     private var requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
         if (isRequestLocationPermissionGranted()) {
             getLastKnownLocation()
@@ -46,9 +51,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun setupBottomNavView() {
+
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottomNavView)
         val navController = findNavController(R.id.navHostFragment)
         bottomNavView.setupWithNavController(navController)
+
+        if (loginViewModel.isLoggedIn) {
+            navController.navigate(R.id.homeFragment)
+        }
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             bottomNavView.isVisible = destination.id == R.id.homeFragment || destination.id == R.id.historyFragment
 

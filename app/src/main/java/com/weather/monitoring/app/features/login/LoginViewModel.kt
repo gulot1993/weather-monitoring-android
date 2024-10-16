@@ -1,5 +1,6 @@
 package com.weather.monitoring.app.features.login
 
+import android.content.SharedPreferences
 import androidx.lifecycle.viewModelScope
 import com.weather.monitoring.app.base.BaseViewModel
 import com.weather.monitoring.app.repository.UserRepository
@@ -12,6 +13,16 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor() : BaseViewModel<LoginUIState>(){
     @Inject
     lateinit var userRepository: UserRepository
+
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+
+    var isLoggedIn: Boolean
+        get() = sharedPreferences.getBoolean("isLoggedIn", false)
+        set(value) {
+            sharedPreferences.edit().putBoolean("isLoggedIn", value).apply()
+        }
+
     override val initialState: LoginUIState
         get() = LoginUIState()
 
@@ -25,6 +36,7 @@ class LoginViewModel @Inject constructor() : BaseViewModel<LoginUIState>(){
                 if (user == null) {
                     mutableUIState.value = mutableUIState.value.copy(isLoading = false, error = "Username or password is incorrect", isSuccess = false)
                 } else {
+                    isLoggedIn = true
                     mutableUIState.value = mutableUIState.value.copy(isLoading = false, error = "", isSuccess = true)
                 }
 

@@ -19,6 +19,7 @@ joda = "2.9.4"
 navigation-component = "2.8.2"
 room-db = "2.6.1"
 location-provider = "21.0.1"
+splash-screen = "1.0.0-beta02"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -57,7 +58,10 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-db" }
 
 #location provider
-location-provider = { group = "com.google.android.gms", name = "play-services-location", version.ref = "location-provider"}
+location-provider = { group = "com.google.android.gms", name = "play-services-location", version.ref = "location-provider" }
+
+#splash screen
+splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash-screen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
