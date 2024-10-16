@@ -34,6 +34,7 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "API_KEY", "\"$weatherAPIKey\"")
+            buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/3.0/onecall/\"")
         }
         debug {
             isMinifyEnabled = false
@@ -43,6 +44,7 @@ android {
             )
 
             buildConfigField("String", "API_KEY", "\"$weatherAPIKey\"")
+            buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/3.0/onecall/\"")
         }
     }
     compileOptions {
