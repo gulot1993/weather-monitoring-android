@@ -9,3 +9,5 @@ Design Pattern: MVVM (with Repository pattern and kotlin coroutines)
 Dependency Injection: Hilt
 
 HTTP Client: OKHTTP / Retrofit
+
+Database: RoomDB
