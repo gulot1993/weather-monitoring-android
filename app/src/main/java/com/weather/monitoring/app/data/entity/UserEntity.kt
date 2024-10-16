@@ -18,7 +18,7 @@ data class UserEntity(
             return with(this) {
                 val completeName = "$firstname $lastname"
                 User(
-                    completeName = completeName
+                    username, password, firstname, lastname
                 )
             }
         }

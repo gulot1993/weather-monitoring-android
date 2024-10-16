@@ -1,5 +1,7 @@
 package com.weather.monitoring.app.di
 
+import com.weather.monitoring.app.repository.UserRepository
+import com.weather.monitoring.app.repository.UserRepositoryImpl
 import com.weather.monitoring.app.repository.WeatherRepository
 import com.weather.monitoring.app.repository.WeatherRepositoryImpl
 import dagger.Binds
@@ -12,4 +14,6 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoryModule {
     @Binds
     abstract fun providesWeatherRepository(weatherRepositoryImpl: WeatherRepositoryImpl): WeatherRepository
+    @Binds
+    abstract fun providesUserRepository(userRepositoryImpl: UserRepositoryImpl): UserRepository
 }
