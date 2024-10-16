@@ -54,7 +54,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
         buildConfig = true
     }
 }
@@ -74,7 +74,6 @@ dependencies {
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
     kapt(libs.hilt.android.compiler)
-//    implementation(libs.hilt.compose)
 
     // retrofit
     implementation(libs.okHttp)
