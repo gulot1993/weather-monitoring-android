@@ -17,10 +17,10 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeUIState>() {
     override val initialState: HomeUIState
         get() = HomeUIState()
 
-    fun getWeatherForecast() {
+    fun getWeatherForecast(lat: Double, lon: Double) {
         viewModelScope.launch {
                 repository
-                    .getWeatherForecast(10.32, 123.86)
+                    .getWeatherForecast(lat, lon)
                     .collectLatest {
                         when(it) {
                             is ResourceState.Error -> {

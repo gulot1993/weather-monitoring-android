@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -21,8 +21,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    private val viewModel: HomeViewModel by viewModels()
-
+    private val viewModel: HomeViewModel by activityViewModels()
 
     override fun resId(): Int {
         return R.layout.fragment_home
@@ -36,8 +35,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun setupViewModel() {
-        viewModel.getWeatherForecast()
-
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel

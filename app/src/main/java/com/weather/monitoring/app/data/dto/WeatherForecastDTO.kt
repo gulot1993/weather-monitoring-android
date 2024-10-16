@@ -7,7 +7,6 @@ import com.weather.monitoring.app.utils.Extensions
 import kotlinx.parcelize.Parcelize
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
-import timber.log.Timber
 
 @Parcelize
 data class WeatherForecastDTO(
@@ -20,7 +19,12 @@ data class WeatherForecastDTO(
     companion object {
         fun WeatherForecastDTO.toDomain(): WeatherForecast {
             val weatherCondition = WeatherForecast.Companion.WeatherCondition.entries.find { it.condition.equals(weather[0].main, ignoreCase = true) } ?: WeatherForecast.Companion.WeatherCondition.CLOUDY
-            val isDayTime = DateTime(dt * 1000).toDateTime(DateTimeZone.getDefault()).toString(Constants.TIME_FORMATTER).contains("AM", ignoreCase = true)
+            val hour = DateTime(dt * 1000)
+                .toDateTime(DateTimeZone.getDefault())
+                .hourOfDay()
+                .get()
+            val isDayTime = hour < 18
+
             return with(this) {
                 WeatherForecast(
                     temperature = Extensions.kelvinToCelsiusConversion(main.temp),
