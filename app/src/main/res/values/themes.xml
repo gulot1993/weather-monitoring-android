@@ -5,7 +5,12 @@
          <item name="colorPrimary">@color/primaryColor</item>
     </style>
 
-    <style name="Theme.Weathermonitoringandroid" parent="Base.Theme.Weathermonitoringandroid" />
+    <style name="Theme.Weathermonitoringandroid.Starting" parent="Theme.SplashScreen" >
+        <item name="postSplashScreenTheme">@style/Base.Theme.Weathermonitoringandroid</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_weather</item>
+        <item name="windowSplashScreenBackground">@color/white_all</item>
+    </style>
     <style name="Widget.App.TextInputLayoutOverlay" parent="Widget.Material3.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">@color/primaryColor</item>
         <item name="hintTextColor">@color/text_primary</item>

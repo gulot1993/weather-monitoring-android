@@ -1,6 +1,7 @@
 package com.weather.monitoring.app.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import com.weather.monitoring.app.db.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -17,4 +18,7 @@ class DatabaseModule {
     @Singleton
     fun providesAppDatabase(@ApplicationContext context: Context): AppDatabase = AppDatabase.getInstance(context = context)
 
+    @Provides
+    @Singleton
+    fun providesPreferenceHelper(@ApplicationContext context: Context): SharedPreferences = context.getSharedPreferences("shared_pref", Context.MODE_PRIVATE)
 }

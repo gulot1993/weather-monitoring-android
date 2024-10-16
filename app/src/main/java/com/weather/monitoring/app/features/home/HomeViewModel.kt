@@ -1,5 +1,6 @@
 package com.weather.monitoring.app.features.home
 
+import android.content.SharedPreferences
 import androidx.lifecycle.viewModelScope
 import com.weather.monitoring.app.base.BaseViewModel
 import com.weather.monitoring.app.base.ResourceState
@@ -12,13 +13,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : BaseViewModel<HomeUIState>() {
+
     @Inject
     lateinit var repository: WeatherRepository
+
     override val initialState: HomeUIState
         get() = HomeUIState()
 
     fun getWeatherForecast(lat: Double, lon: Double) {
-        Timber.d("executed getting weather")
         viewModelScope.launch {
                 repository
                     .getWeatherForecast(lat, lon)
