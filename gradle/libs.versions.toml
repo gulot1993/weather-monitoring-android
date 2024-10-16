@@ -9,6 +9,18 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
+okhttpLoggingInterceptor = "4.12.0"
+retrofit = "2.11.0"
+gson = "2.11.0"
+hilt = "2.51.1"
+kotlin-parcelize = "1.8.0"
+timber = "5.0.1"
+joda = "2.9.4"
+navigation-component = "2.8.2"
+hilt-compose = "1.2.0"
+kotlinx-coroutines-test = "1.9.0"
+mockito = "5.4.0"
+turbine  = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -20,7 +32,36 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+#hilt
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref="hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref="hilt" }
+
+#retrofit & oktthp & gson
+okHttp = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttpLoggingInterceptor" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+gson-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+gson = { group = "com.google.code.gson" , name = "gson", version.ref = "gson" }
+
+#timber
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+#joda date time
+joda = { group = "joda-time", name = "joda-time", version.ref = "joda" }
+
+#navigation component
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigation-component"}
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation-component"}
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
+#dagger plugin
+dagger-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+#kotlin-parcelize plugin
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin-parcelize"}
+
+#kotlin-katp plugin
+org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
