@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">weather-monitoring-android</string>
+    <string name="history">History</string>
+    <string name="home">Home</string>
+    <string name="sign_in">Sign-in</string>
+    <string name="register">Register</string>
+    <string name="welcome_back">Welcome back!!</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">login</string>
+    <string name="sign_up">Sign-up</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="temperature">%s\u2103</string>
+    <string name="sunrise">Sunrise: %s</string>
+    <string name="sunset">Sunset: %s</string>
+    <string name="history_of_weathers">Recent weathers: </string>
 </resources>
