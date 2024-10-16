@@ -17,10 +17,7 @@ kotlin-parcelize = "1.8.0"
 timber = "5.0.1"
 joda = "2.9.4"
 navigation-component = "2.8.2"
-hilt-compose = "1.2.0"
-kotlinx-coroutines-test = "1.9.0"
-mockito = "5.4.0"
-turbine  = "1.1.0"
+room-db = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -50,8 +47,13 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 joda = { group = "joda-time", name = "joda-time", version.ref = "joda" }
 
 #navigation component
-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigation-component"}
-navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation-component"}
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigation-component" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation-component" }
+
+#room-db
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-db" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-db" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room-db" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

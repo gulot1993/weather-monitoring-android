@@ -94,4 +94,9 @@ dependencies {
     // navigation component
     implementation(libs.navigation.ui)
     implementation(libs.navigation.fragment)
+
+    // room db
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    kapt(libs.room.compiler)
 }
