@@ -6,12 +6,14 @@ import com.weather.monitoring.app.data.domain.WeatherForecast.Companion.WeatherC
 import com.weather.monitoring.app.data.domain.WeatherForecast.Companion.WeatherConditionTime.RAINY_NIGHT
 
 data class WeatherForecast(
+    val id: Int = 0,
     val temperature: Double = 0.00,
     val location: String = "",
     val sunrise: String = "",
     val sunset: String = "",
     val condition: WeatherConditionTime = RAINY_DAY,
-    val description: String = ""
+    val description: String = "",
+    val dayOfWeek: String = ""
 ) {
     companion object {
         enum class WeatherCondition(val condition: String) {

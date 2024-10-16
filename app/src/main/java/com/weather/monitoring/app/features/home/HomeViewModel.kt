@@ -3,11 +3,11 @@ package com.weather.monitoring.app.features.home
 import androidx.lifecycle.viewModelScope
 import com.weather.monitoring.app.base.BaseViewModel
 import com.weather.monitoring.app.base.ResourceState
-import com.weather.monitoring.app.data.dto.WeatherForecastDTO.Companion.toDomain
 import com.weather.monitoring.app.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,6 +18,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeUIState>() {
         get() = HomeUIState()
 
     fun getWeatherForecast(lat: Double, lon: Double) {
+        Timber.d("executed getting weather")
         viewModelScope.launch {
                 repository
                     .getWeatherForecast(lat, lon)
@@ -32,7 +33,7 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeUIState>() {
                             }
 
                             is ResourceState.Success -> {
-                                mutableUIState.value = mutableUIState.value.copy(weather = it.data.toDomain(), isLoading = false, error = "")
+                                mutableUIState.value = mutableUIState.value.copy(weather = it.data, isLoading = false, error = "")
                             }
                         }
                     }

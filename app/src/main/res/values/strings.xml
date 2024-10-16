@@ -14,4 +14,5 @@
     <string name="temperature">%s\u2103</string>
     <string name="sunrise">Sunrise: %s</string>
     <string name="sunset">Sunset: %s</string>
+    <string name="history_of_weathers">Recent weathers: </string>
 </resources>

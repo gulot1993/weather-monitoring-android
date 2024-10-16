@@ -61,6 +61,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             tvTemperature.text = getString(R.string.temperature, weather.temperature.toString())
             tvDescription.text = weather.description
             ivWeather.setImageDrawable(ContextCompat.getDrawable(requireContext(), weatherImage(weather)))
+            tvDay.text = weather.dayOfWeek
         }
     }
 

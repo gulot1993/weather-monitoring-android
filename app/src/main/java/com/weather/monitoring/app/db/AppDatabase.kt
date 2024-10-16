@@ -5,14 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.weather.monitoring.app.data.entity.UserEntity
+import com.weather.monitoring.app.data.entity.WeatherForecastEntity
 import com.weather.monitoring.app.db.dao.UserDao
+import com.weather.monitoring.app.db.dao.WeatherForecastDao
 
 @Database(
-    version = 2,
-    entities = [UserEntity::class]
+    version = 1,
+    entities = [UserEntity::class, WeatherForecastEntity::class]
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun weatherForecastDao(): WeatherForecastDao
 
     companion object {
         @Volatile
