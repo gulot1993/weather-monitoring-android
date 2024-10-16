@@ -29,7 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val navController = findNavController(R.id.navHostFragment)
         bottomNavView.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-//            bottomNavView.isVisible = destination.id == R.id.homeFragment || destination.id == R.id.historyFragment
+            bottomNavView.isVisible = destination.id == R.id.homeFragment || destination.id == R.id.historyFragment
         }
     }
 }

@@ -67,3 +67,6 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 
 #kotlin-katp plugin
 org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+
+#saveArgs
+navigation-safe-args = { id = "androidx.navigation.safeargs", version.ref = "navigation-component" }

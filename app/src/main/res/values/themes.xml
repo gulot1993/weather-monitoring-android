@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.Weathermonitoringandroid" parent="Base.Theme.Weathermonitoringandroid" />
+    <style name="Widget.App.TextInputLayoutOverlay" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/primaryColor</item>
+        <item name="hintTextColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_primary</item>
+        <item name="boxStrokeColor">@color/blue_228</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+    </style>
 </resources>
