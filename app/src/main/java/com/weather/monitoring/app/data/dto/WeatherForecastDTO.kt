@@ -17,8 +17,7 @@ data class WeatherForecastDTO(
     val dt: Long,
     val main: WeatherMainDTO,
     val sys: WeatherSysDTO,
-    val id: Long,
-    val weatherId: Long
+    val id: Long
 ) : Parcelable {
     companion object {
         fun WeatherForecastDTO.toEntity(): WeatherForecastEntity {
@@ -31,7 +30,7 @@ data class WeatherForecastDTO(
                     condition = weather[0].main,
                     description = weather[0].description,
                     dt = dt,
-                    weatherId = weatherId
+                    weatherId = id
                 )
             }
         }

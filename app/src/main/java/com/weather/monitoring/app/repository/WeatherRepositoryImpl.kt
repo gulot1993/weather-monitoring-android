@@ -26,7 +26,7 @@ class WeatherRepositoryImpl @Inject constructor(
     override suspend fun getWeatherForecast(lat: Double, lon: Double) = flow {
         emit(Loading())
         val response = apiService.getCurrentWeatherForecast(lat, lon, BuildConfig.API_KEY)
-        val existingEntity = database.weatherForecastDao().getGetWeatherByDayAndCondition(response.weatherId)
+        val existingEntity = database.weatherForecastDao().getGetWeatherByDayAndCondition(response.id)
         var entityId = 0L
         if (existingEntity == null) {
             entityId = database.weatherForecastDao().saveWeatherForecast(response.toEntity())
