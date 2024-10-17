@@ -27,12 +27,8 @@ class WeatherRepositoryImpl @Inject constructor(
         emit(Loading())
         val response = apiService.getCurrentWeatherForecast(lat, lon, BuildConfig.API_KEY)
         val existingEntity = database.weatherForecastDao().getGetWeatherByDayAndCondition(response.id)
-        var entityId = 0L
-        if (existingEntity == null) {
-            entityId = database.weatherForecastDao().saveWeatherForecast(response.toEntity())
-        } else {
-            entityId = existingEntity.id.toLong()
-        }
+        val entityId = existingEntity?.id?.toLong()
+            ?: database.weatherForecastDao().saveWeatherForecast(response.toEntity())
         val domain = database.weatherForecastDao().getWeatherById(entityId).toDomain()
         emit(Success(data = domain))
     }.catch {
@@ -40,18 +36,16 @@ class WeatherRepositoryImpl @Inject constructor(
     }
     .flowOn(Dispatchers.IO)
 
-    override suspend fun getAllWeatherForecasts(): Flow<ResourceState<List<WeatherForecast>>> {
-        return database
-            .weatherForecastDao()
-            .getAllWeatherForecasts()
-            .distinctUntilChanged()
-            .transform {
-                emit(Loading())
-                val domain = it.map { it.toDomain() }
-                emit(Success(data = domain))
-            }.catch {
-                emit(Error(message = it.message.toString()))
-            }
-            .flowOn(Dispatchers.IO)
-    }
+    override suspend fun getAllWeatherForecasts() =  database
+        .weatherForecastDao()
+        .getAllWeatherForecasts()
+        .distinctUntilChanged()
+        .transform {
+            emit(Loading())
+            val domain = it.map { it.toDomain() }
+            emit(Success(data = domain))
+        }.catch {
+            emit(Error(message = it.message.toString()))
+        }
+        .flowOn(Dispatchers.IO)
 }
