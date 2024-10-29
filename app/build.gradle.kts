@@ -29,7 +29,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isDebuggable = false
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -39,11 +41,8 @@ android {
         }
         debug {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-
+            isDebuggable = true
+            isShrinkResources = false
             buildConfigField("String", "API_KEY", "\"$weatherAPIKey\"")
             buildConfigField("String", "BASE_API_URL", "\"https://api.openweathermap.org/data/2.5/\"")
         }
